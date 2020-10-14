@@ -6,8 +6,10 @@ import com.journals.hilarispublisher.model.ArchiveResponse;
 import com.journals.hilarispublisher.model.CategoryResponse;
 import com.journals.hilarispublisher.model.ContactResponse;
 import com.journals.hilarispublisher.model.CurrentIssueResponse;
+import com.journals.hilarispublisher.model.EditorialBoardResponse;
 import com.journals.hilarispublisher.model.HomeResponse;
 import com.journals.hilarispublisher.model.InPressResponse;
+import com.journals.hilarispublisher.model.InstructionforAuthorsResponse;
 import com.journals.hilarispublisher.model.JournalHomeResponse;
 import com.journals.hilarispublisher.model.JournalsListResponse;
 import com.journals.hilarispublisher.model.VolumeIssueResponse;
@@ -56,14 +58,19 @@ public interface Api {
     @POST("contactpagejournalsapi.php")
     Call<JournalsListResponse> getJournalListDisplay(@Body JsonObject jsonObject);
 
-  /*  {
-        "page":"1"
-    }*/
+
 
     @Headers("Content-Type: application/json")
     @POST("contactapi.php")
     Call<ContactResponse> getContactDisplay(@Body JsonObject jsonObject);
 
+    @Headers("Content-Type: application/json")
+    @POST("instructionsforauthorsapi.php")
+    Call<InstructionforAuthorsResponse> getInstructionsList(@Body JsonObject jsonObject);
 
+
+    @Headers("Content-Type: application/json")
+    @POST("editorialboardapi.php")
+    Call<EditorialBoardResponse> getEditorialList(@Body JsonObject jsonObject);
 
 }
